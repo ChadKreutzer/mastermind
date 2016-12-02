@@ -1,6 +1,6 @@
 source 'https://rubygems.org' do
-  gem 'rubocop', require: false
+  gem 'flog', require: false
   gem 'minitest'
   gem 'rdoc'
-  gem 'flog'
+  gem 'rubocop', require: false
 end
