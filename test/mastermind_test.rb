@@ -23,4 +23,12 @@ class MastermindTest < Minitest::Test
       peg.is_a?(Symbol)
     end
   end
+
+  def test_guess_is_array_with_length_of_4
+    with_stdin do |user|
+      user.puts 'red green black yellow'
+      expected = 4
+      assert_equal expected, ::Guesser.new.guess.length
+    end
+  end
 end

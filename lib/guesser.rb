@@ -2,7 +2,7 @@ require_relative 'player'
 # The Code Guesser Class
 class Guesser < Player
   attr_writer :secret_code
-  attr_reader :guess 
+  attr_reader :guess
   
   private
   
