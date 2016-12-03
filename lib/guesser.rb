@@ -12,10 +12,10 @@ class Guesser < Player
 
   def make_guess(player_choice)
     choice_array = player_choice.downcase.split
-    if validate_choices?(choice_array)
+    if not_valid_choice?(choice_array)
       print "Your guess contains invalid choice(s), try again\n>"
       make_guess(input)
-    elsif validate_length?(choice_array)
+    elsif not_valid_length?(choice_array)
       print "Wrong number of pegs, try again\n>"
       make_guess(input)
     else

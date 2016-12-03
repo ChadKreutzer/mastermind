@@ -11,11 +11,11 @@ class Player
     code
   end
 
-  def validate_choices?(player_choice)
+  def not_valid_choice?(player_choice)
     !player_choice.all? { |x| x =~ /(red|blue|yellow|green|white|black)/ }
   end
 
-  def validate_length?(player_choice)
+  def not_valid_length?(player_choice)
     player_choice.length != 4
   end
 
