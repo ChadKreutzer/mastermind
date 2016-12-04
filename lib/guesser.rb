@@ -1,6 +1,8 @@
 require_relative 'player'
+require_relative 'helper'
 # The Code Guesser Class
 class Guesser < Player
+  include Helper
   attr_writer :secret_code
   attr_reader :guess
 

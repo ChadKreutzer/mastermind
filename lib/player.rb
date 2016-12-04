@@ -19,7 +19,5 @@ class Player
     player_choice.length != 4
   end
 
-  def input
-    gets.chomp
-  end
+  
 end
