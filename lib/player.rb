@@ -18,6 +18,4 @@ class Player
   def not_valid_length?(player_choice)
     player_choice.length != 4
   end
-
-  
 end
