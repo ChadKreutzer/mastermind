@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require_relative '../lib/master'
 require_relative '../lib/guesser'
+require_relative '../lib/board'
 
 class MastermindTest < Minitest::Test
   def with_stdin
@@ -25,10 +26,9 @@ class MastermindTest < Minitest::Test
   end
 
   def test_display_secret_code_is_colors_divided_by_pipes
-    m = Master.new
-    m.secret_code = [:red, :blue, :yellow, :white]
-    expected = 'red|blue|yellow|white'
-    assert_equal expected, m.display_secret_code
+    expected = '|red|blue|yellow|white|'
+    assert_equal expected, ::Board.new.display_pegs([:red,    :blue,
+                                                     :yellow, :white])
   end
 
   def test_correct_guess

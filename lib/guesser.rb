@@ -3,11 +3,11 @@ require_relative 'player'
 class Guesser < Player
   attr_writer :secret_code
   attr_reader :guess
-  
+
   def guess(player_choice)
     @guess = make_guess(player_choice)
   end
-    
+
   private
 
   def make_guess(player_choice)

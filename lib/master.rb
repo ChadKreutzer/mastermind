@@ -11,15 +11,11 @@ class Master < Player
   end
 
   def validate_guess(player_choice)
-    if player_choice == @secret_code
-      @key_hints = CORRECT_GUESS
-    else
-      check_for_white_matches(check_for_black_matches(player_choice))
-    end
-  end
-
-  def display_secret_code
-    @secret_code.join('|')
+    check_for_white_matches(
+      check_for_black_matches(
+        player_choice
+      )
+    )
   end
 
   private
