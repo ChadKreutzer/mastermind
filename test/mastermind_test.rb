@@ -25,30 +25,6 @@ class MastermindTest < Minitest::Test
     end
   end
 
-  def test_display_secret_code_is_colors_divided_by_pipes
-    expected = '|red|blue|yellow|white|'
-    assert_equal expected, ::Board.new.display_pegs([:red,    :blue,
-                                                     :yellow, :white])
-  end
-
-  def test_board_displays_correctly
-    expected = <<-GAMEBOARD
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-    GAMEBOARD
-    assert_equal expected, ::Board.new.display_board
-  end
-
   def test_correct_guess
     m = Master.new
     m.secret_code = [:red, :blue, :yellow, :white]
@@ -87,4 +63,29 @@ class MastermindTest < Minitest::Test
       assert_equal expected, b.guess('yellow red blue purple')
     end
   end
+
+  def test_display_secret_code_is_colors_divided_by_pipes
+    expected = '|red|blue|yellow|white|'
+    assert_equal expected, ::Board.new.display_pegs([:red,    :blue,
+                                                     :yellow, :white])
+  end
+
+  def test_board_displays_correctly
+    expected = <<-GAMEBOARD
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+    GAMEBOARD
+    assert_equal expected, ::Board.new.display_board
+  end
+
 end
