@@ -31,6 +31,24 @@ class MastermindTest < Minitest::Test
                                                      :yellow, :white])
   end
 
+  def test_board_displays_correctly
+    expected = <<-GAMEBOARD
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+    GAMEBOARD
+    assert_equal expected, ::Board.new.display_board
+  end
+
   def test_correct_guess
     m = Master.new
     m.secret_code = [:red, :blue, :yellow, :white]
