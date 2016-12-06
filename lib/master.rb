@@ -3,9 +3,8 @@ require_relative 'helper'
 # The Code Creator Class
 class Master < Player
   include Helper
-  CORRECT_GUESS = [:black, :black, :black, :black].freeze
+
   attr_accessor :key_hints, :secret_code
-  attr_writer :guess
 
   def initialize
     @secret_code = generate_code
