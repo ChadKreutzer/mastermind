@@ -20,11 +20,11 @@ class Board
     "|#{pegs.join('|')}|"
   end  
 
-  def new_guess(breaker_guess)
+  def new_guess(turn, breaker_guess)
     @board[turn][0] = display_pegs(breaker_guess)
   end
 
-  def new_hint(master_hint)
+  def new_hint(turn, master_hint)
     @board[turn][1] = display_pegs(master_hint)
   end
 end

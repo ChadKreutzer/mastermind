@@ -70,7 +70,7 @@ class MastermindTest < Minitest::Test
                                                      :yellow, :white])
   end
 
-  def test_board_displays_correctly
+  def test_initial_board_displays_correctly
     expected = <<-GAMEBOARD
 |none|none|none|none||||none|none|none|none|
 |none|none|none|none||||none|none|none|none|
@@ -86,6 +86,26 @@ class MastermindTest < Minitest::Test
 |none|none|none|none||||none|none|none|none|
     GAMEBOARD
     assert_equal expected, ::Board.new.display_board
+  end
+
+  def test_board_display_first_guess_correctly
+    b = Board.new
+    b.new_guess(0, [:red, :blue, :yellow, :white])
+    expected = <<-GAMEBOARD
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|none|none|none|none||||none|none|none|none|
+|red|blue|yellow|white||||none|none|none|none|
+    GAMEBOARD
+    assert_equal expected, b.display_board
   end
 
 end
