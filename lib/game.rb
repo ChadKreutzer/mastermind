@@ -1,8 +1,4 @@
-require_relative 'master'
-require_relative 'guesser'
-require_relative 'board'
-require_relative 'helper'
-
+Dir['./lib/*'].each {|file_name| require file_name }
 #Class for playing game
 class Game
   CORRECT_GUESS = [:black, :black, :black, :black].freeze

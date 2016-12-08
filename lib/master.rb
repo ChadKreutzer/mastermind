@@ -1,5 +1,4 @@
-require_relative 'player'
-require_relative 'helper'
+Dir['./lib/*'].each {|file_name| require file_name }
 # The Code Creator Class
 class Master < Player
   include Helper

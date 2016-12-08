@@ -1,7 +1,5 @@
 require 'minitest/autorun'
-require_relative '../lib/master'
-require_relative '../lib/guesser'
-require_relative '../lib/board'
+Dir['./lib/*'].each {|file_name| require file_name }
 
 class MastermindTest < Minitest::Test
   def with_stdin

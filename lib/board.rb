@@ -1,5 +1,4 @@
-require_relative 'master'
-require_relative 'guesser'
+Dir['./lib/*'].each {|file_name| require file_name }
 
 # Board for playing the game
 class Board
