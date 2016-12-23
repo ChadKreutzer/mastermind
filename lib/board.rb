@@ -2,6 +2,8 @@ Dir['./lib/*'].each { |file_name| require file_name }
 
 # Board for playing the game
 class Board
+  attr_accessor :board
+  
   def initialize
     @board = Array.new(12) { Array.new(2, '|  |  |  |  |') }
   end
@@ -9,7 +11,7 @@ class Board
   def display_board
     current_board = ''
     11.downto(0) do |row|
-      current_board += "#{@board[row][0]}||#{@board[row][1]}\n"
+      current_board += "#{@board[row][0]}|#{@board[row][1]}\n"
     end
     current_board
   end
