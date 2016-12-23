@@ -1,5 +1,5 @@
 require 'minitest/autorun'
-Dir['./lib/*'].each {|file_name| require file_name }
+Dir['./lib/*'].each { |file_name| require file_name }
 
 class MastermindTest < Minitest::Test
   def with_stdin
@@ -25,22 +25,22 @@ class MastermindTest < Minitest::Test
 
   def test_correct_guess
     m = Master.new
-    m.secret_code = [:red, :blue, :yellow, :white]
-    m.validate_guess([:red, :blue, :yellow, :white])
-    expected = [:black, :black, :black, :black]
+    m.secret_code = [:RD, :BU, :YW, :WT]
+    m.validate_guess([:RD, :BU, :YW, :WT])
+    expected = [:BK, :BK, :BK, :BK]
     assert_equal expected, m.key_hints
   end
 
   def test_wrong_guess_with_both_black_and_white
     m = Master.new
-    m.secret_code = [:red, :blue, :yellow, :white]
-    m.validate_guess([:black, :blue, :white, :green])
-    expected = [:black, :white]
+    m.secret_code = [:RD, :BU, :YW, :WT]
+    m.validate_guess([:BK, :BU, :WT, :GR])
+    expected = [:BK, :WT]
     assert_equal expected, m.key_hints
   end
 
   def test_player_guess
-    expected = [:yellow, :red, :blue, :white]
+    expected = [:YW, :RD, :BU, :WT]
     assert_equal expected, ::Guesser.new.guess('yellow red blue white')
   end
 
@@ -48,7 +48,7 @@ class MastermindTest < Minitest::Test
     with_stdin do |user|
       user.puts 'yellow red blue white'
       b = Guesser.new
-      expected = [:yellow, :red, :blue, :white]
+      expected = [:YW, :RD, :BU, :WT]
       assert_equal expected, b.guess('yellow red blue')
     end
   end
@@ -57,53 +57,51 @@ class MastermindTest < Minitest::Test
     with_stdin do |user|
       user.puts 'yellow red blue white'
       b = Guesser.new
-      expected = [:yellow, :red, :blue, :white]
+      expected = [:YW, :RD, :BU, :WT]
       assert_equal expected, b.guess('yellow red blue purple')
     end
   end
 
   def test_display_secret_code_is_colors_divided_by_pipes
-    expected = '|red|blue|yellow|white|'
-    assert_equal expected, ::Board.new.display_pegs([:red,    :blue,
-                                                     :yellow, :white])
+    expected = '|RD|BU|YW|WT|'
+    assert_equal expected, ::Board.new.display_pegs([:RD, :BU, :YW, :WT])
   end
 
   def test_initial_board_displays_correctly
     expected = <<-GAMEBOARD
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
     GAMEBOARD
     assert_equal expected, ::Board.new.display_board
   end
 
   def test_board_display_first_guess_correctly
     b = Board.new
-    b.new_guess(0, [:red, :blue, :yellow, :white])
+    b.new_guess(0, [:RD, :BU, :YW, :WT])
     expected = <<-GAMEBOARD
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|none|none|none|none||||none|none|none|none|
-|red|blue|yellow|white||||none|none|none|none|
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|  |  |  |  ||||  |  |  |  |
+|RD|BU|YW|WT||||  |  |  |  |
     GAMEBOARD
     assert_equal expected, b.display_board
   end
-
 end

@@ -1,4 +1,4 @@
-Dir['./lib/*'].each {|file_name| require file_name }
+Dir['./lib/*'].each { |file_name| require file_name }
 # The Code Guesser Class
 class Guesser < Player
   include Helper
@@ -20,7 +20,7 @@ class Guesser < Player
       print "Wrong number of pegs, try again\n>"
       make_guess(input)
     else
-      choice_array.map(&:to_sym)
+      choice_array.map { |choice| CODE_PEGS[choice] }
     end
   end
 end

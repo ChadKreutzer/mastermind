@@ -1,4 +1,4 @@
-Dir['./lib/*'].each {|file_name| require file_name }
+Dir['./lib/*'].each { |file_name| require file_name }
 # The Code Creator Class
 class Master < Player
   include Helper
@@ -24,7 +24,7 @@ class Master < Player
     choice_minus_blacks = []
     player_choice.each_with_index do |peg, index|
       if @secret_code[index] == peg
-        @key_hints.push(:black)
+        @key_hints.push(:BK)
       else
         choice_minus_blacks.push(peg)
       end
@@ -34,7 +34,7 @@ class Master < Player
 
   def check_for_white_matches(player_choice)
     player_choice.each do |peg|
-      @key_hints.push(:white) if @secret_code.any? { |x| x == peg }
+      @key_hints.push(:WT) if @secret_code.any? { |x| x == peg }
     end
   end
 end

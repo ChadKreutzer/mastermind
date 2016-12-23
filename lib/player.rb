@@ -1,13 +1,13 @@
 # Master Class for Guesser and Master
 class Player
-  CODE_PEGS = [:red, :blue, :yellow, :green, :white, :black].freeze
-  KEY_PEGS = [:black, :white].freeze
+  CODE_PEGS = { 'red'   => :RD, 'blue'  => :BU, 'yellow' => :YW,
+                'green' => :GR, 'white' => :WT, 'black'  => :BK }.freeze
 
   private
 
   def generate_code
     code = []
-    4.times { code.push(CODE_PEGS.sample) }
+    4.times { code.push(CODE_PEGS.keys.sample) }
     code
   end
 

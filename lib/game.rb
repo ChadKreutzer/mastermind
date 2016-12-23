@@ -1,7 +1,7 @@
-Dir['./lib/*'].each {|file_name| require file_name }
-#Class for playing game
+Dir['./lib/*'].each { |file_name| require file_name }
+# Class for playing game
 class Game
-  CORRECT_GUESS = [:black, :black, :black, :black].freeze
+  CORRECT_GUESS = [:BK, :BK, :BK, :BK].freeze
 
   def initialize
     @turn = 0
@@ -28,5 +28,4 @@ class Game
       @turn += 1
     end
   end
-
 end

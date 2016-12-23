@@ -1,10 +1,9 @@
-Dir['./lib/*'].each {|file_name| require file_name }
+Dir['./lib/*'].each { |file_name| require file_name }
 
 # Board for playing the game
 class Board
-  
   def initialize
-    @board = Array.new(12) { Array.new(2, '|none|none|none|none|') }
+    @board = Array.new(12) { Array.new(2, '|  |  |  |  |') }
   end
 
   def display_board
@@ -17,7 +16,7 @@ class Board
 
   def display_pegs(pegs)
     "|#{pegs.join('|')}|"
-  end  
+  end
 
   def new_guess(turn, breaker_guess)
     @board[turn][0] = display_pegs(breaker_guess)
