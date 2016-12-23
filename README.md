@@ -47,5 +47,3 @@ The response when 2 pegs of the same color appear in the secret code and/or in
 the Codebreaker's row can cause some confusion. The basic principles are that
 **one Key Peg corresponds to one Code Peg** and, that **a black Key Peg takes
 precedence over a white one**.
-
-must change keys to two character keys (maybe use hash table after all?)
