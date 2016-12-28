@@ -7,7 +7,7 @@ class Player
 
   def generate_code
     code = []
-    4.times { code.push(CODE_PEGS.keys.sample) }
+    4.times { code.push(CODE_PEGS[CODE_PEGS.keys.sample]) }
     code
   end
 

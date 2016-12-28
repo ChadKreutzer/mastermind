@@ -2,10 +2,10 @@ Dir['./lib/*'].each { |file_name| require file_name }
 
 # Board for playing the game
 class Board
-  attr_accessor :board
-  
+  # attr_accessor :board
+
   def initialize
-    @board = Array.new(12) { Array.new(2, '|  |  |  |  |') }
+    @board = Array.new(12) { Array.new(1, '|  |  |  |  |') }
   end
 
   def display_board

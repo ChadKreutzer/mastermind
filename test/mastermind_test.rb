@@ -11,7 +11,7 @@ class MastermindTest < Minitest::Test
     $stdin = stdin
   end
 
-# Master tests
+  # Master tests
   def test_secret_code_is_array_with_length_of_4
     expected = 4
     assert_equal expected, ::Master.new.secret_code.length
@@ -40,7 +40,7 @@ class MastermindTest < Minitest::Test
     assert_equal expected, m.key_hints
   end
 
-# Guesser tests
+  # Guesser tests
   def test_player_guess
     expected = [:YW, :RD, :BU, :WT]
     assert_equal expected, ::Guesser.new.guess('yellow red blue white')
@@ -64,7 +64,7 @@ class MastermindTest < Minitest::Test
     end
   end
 
-# Board Tests
+  # Board Tests
   def test_display_secret_code_is_colors_divided_by_pipes
     expected = '|RD|BU|YW|WT|'
     assert_equal expected, ::Board.new.display_pegs([:RD, :BU, :YW, :WT])
@@ -106,5 +106,12 @@ class MastermindTest < Minitest::Test
 |RD|BU|YW|WT|||  |  |  |  |
     GAMEBOARD
     assert_equal expected, b.display_board
+  end
+
+  # Game tests
+  def test_game_creation
+    g = Game.new
+    expected = Board
+    assert_equal expected, g.instance_variable_get(:@game_board).class
   end
 end
