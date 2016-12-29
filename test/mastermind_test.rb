@@ -72,18 +72,18 @@ class MastermindTest < Minitest::Test
 
   def test_initial_board_displays_correctly
     expected = <<-GAMEBOARD
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
     GAMEBOARD
     assert_equal expected, ::Board.new.display_board
   end
@@ -92,18 +92,18 @@ class MastermindTest < Minitest::Test
     b = Board.new
     b.new_guess(0, [:RD, :BU, :YW, :WT])
     expected = <<-GAMEBOARD
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|  |  |  |  |||  |  |  |  |
-|RD|BU|YW|WT|||  |  |  |  |
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|  |  |  |  ||
+|RD|BU|YW|WT||
     GAMEBOARD
     assert_equal expected, b.display_board
   end

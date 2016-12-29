@@ -30,13 +30,26 @@ class Game
   def check_for_win(hints)
     if hints == CORRECT_GUESS
       puts 'You win!'
-      exit!
+      play_again?
+
     elsif @turn == 11
       puts 'You lose! the Secret code was ' \
            "#{@game_board.display_pegs(@code_master.secret_code)}"
-      exit!
+      play_again?
     else
       @turn += 1
+    end
+  end
+
+  def play_again?
+    print 'Do you want to play again? (y/n) >'
+    exit_choice = gets.chomp.downcase
+    if exit_choice == 'y'
+      Game.new.play
+    elsif exit_choice == 'n'
+      exit!
+    else
+      play_again?
     end
   end
 end
